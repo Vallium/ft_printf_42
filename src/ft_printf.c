@@ -28,7 +28,7 @@ int			print_char(va_list flags)
 {
 	char	c;
 
-	c = va_arg(flags, char);
+	c = va_arg(flags, int);
 	ft_putchar(c);
 	return (1);
 }
@@ -45,7 +45,7 @@ int			print_str(va_list flags)
 int			choose_flag(va_list flags, char c)
 {
 	if (c == 'c')
-		ft_printchar(flags);
+		print_char(flags);
 	else if (c == '%')
 		ft_putchar(c);
 	return (0);
