@@ -24,6 +24,27 @@ void		ft_putstr(char *str)
 		ft_putchar(*str++);
 }
 
+void			ft_putnbr(int n)
+{
+	if (n == -2147483648)
+		return (ft_putstr("-2147483648"));
+	if (n < 0)
+	{
+		ft_putchar('-');
+		ft_putnbr(-n);
+	}
+	else
+	{
+		if (n < 10)
+			ft_putchar(n + '0');
+		else
+		{
+			ft_putnbr(n / 10);
+			ft_putchar((n % 10) + '0');
+		}
+	}
+}
+
 int			print_char(va_list flags)
 {
 	char	c;
@@ -42,10 +63,23 @@ int			print_str(va_list flags)
 	return (1);
 }
 
+int			print_int(va_list flags)
+{
+	int		d;
+
+	d = va_arg(flags, int);
+	ft_putnbr(d);
+	return (1);
+}
+
 int			choose_flag(va_list flags, char c)
 {
 	if (c == 'c')
 		print_char(flags);
+	else if (c == 's')
+		print_str(flags);
+	else if (c == 'd')
+		print_int(flags);
 	else if (c == '%')
 		ft_putchar(c);
 	return (0);
