@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/17 13:39:48 by aalliot           #+#    #+#             */
-/*   Updated: 2015/02/17 13:39:51 by aalliot          ###   ########.fr       */
+/*   Created: 2015/02/26 13:10:39 by aalliot           #+#    #+#             */
+/*   Updated: 2015/02/26 13:19:09 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../includes/ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+int		main(int argc, char *argv[])
+{
+	(void)argc;
 
-int			ft_printf(const char *str, ...);
+	ft_printf("%% => <%%>\n");
+	ft_printf("c => <%c>\n", argv[1][0]);
+	ft_printf("s => <%s>\n", argv[1]);
+	ft_printf("d => <%d>\n", 42);
 
-# endif
+	return 0;
+}

@@ -63,7 +63,7 @@ int			print_str(va_list flags)
 	return (1);
 }
 
-int			print_number(va_list flags)
+int			print_int(va_list flags)
 {
 	int		nb;
 
@@ -79,7 +79,7 @@ int			choose_flag(va_list flags, char c)
 	else if (c == 's')
 		print_str(flags);
 	else if (c == 'd')
-		print_number(flags);
+		print_int(flags);
 	else if (c == '%')
 		ft_putchar(c);
 	return (0);
