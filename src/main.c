@@ -21,5 +21,7 @@ int		main(int argc, char *argv[])
 	ft_printf("s => <%s>\n", argv[1]);
 	ft_printf("d => <%d>\n", 42);
 
+	printf("%S\n", "test");
+
 	return 0;
 }

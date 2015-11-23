@@ -12,95 +12,63 @@
 
 #include "ft_printf.h"
 
-void		ft_putchar(char c)
+static void		ft_init_functions_tab(int (**f)(t_options *, va_list *, int *))
 {
-	if (c)
-		write(1, &c, 1);
+	f[0] = ft_s;
+	f[1] = ft_s2;
+	f[2] = ft_p;
+	f[3] = ft_d;
+	f[4] = ft_d2;
+	f[5] = ft_d;
+	f[6] = ft_o;
+	f[7] = ft_o2;
+	f[8] = ft_u;
+	f[9] = ft_u2;
+	f[10] = ft_x;
+	f[11] = ft_x2;
+	f[12] = ft_c;
+	f[13] = ft_c2;
+	f[14] = ft_b;
+	f[15] = ft_r;
+	f[16] = ft_g;
 }
 
-void		ft_putstr(char *str)
+static int	ft_sub_printf(char *str, t_vars *vars)
 {
-	while (*str)
-		ft_putchar(*str++);
-}
+	char	*beg_ptr;
 
-void			ft_putnbr(int n)
-{
-	if (n == -2147483648)
-		return (ft_putstr("-2147483648"));
-	if (n < 0)
+	beg_ptr = str;
+	vars->ret = 0;
+	while(*str)
 	{
-		ft_putchar('-');
-		ft_putnbr(-n);
-	}
-	else
-	{
-		if (n < 10)
-			ft_putchar(n + '0');
-		else
+		if(*str == '%')
 		{
-			ft_putnbr(n / 10);
-			ft_putchar((n % 10) + '0');
+			var->ret += str - beg_ptr
+			if (vars->ret > 0)
+				write(1, beg_ptr, str - beg_ptr);
+			str += ft_parse_var(str + 1, vars) + 1;
+			if (vars->ret == -1)
+				return (-1);
+			beg_ptr = str;
 		}
+		else
+			str++;
 	}
-}
-
-int			print_char(va_list flags)
-{
-	char	c;
-
-	c = va_arg(flags, int);
-	ft_putchar(c);
-	return (1);
-}
-
-int			print_str(va_list flags)
-{
-	char	*str;
-
-	str = va_arg(flags, char *);
-	ft_putstr(str);
-	return (1);
-}
-
-int			print_int(va_list flags)
-{
-	int		nb;
-
-	nb = va_arg(flags, int);
-	ft_putnbr(nb);
-	return (1);
-}
-
-int			choose_flag(va_list flags, char c)
-{
-	if (c == 'c')
-		print_char(flags);
-	else if (c == 's')
-		print_str(flags);
-	else if (c == 'd')
-		print_int(flags);
-	else if (c == '%')
-		ft_putchar(c);
+	vars->ret += ft_strlen(beg_ptr);
+	ft_putstr(beg_ptr);
+	va_end(flags);
 	return (0);
 }
 
 int			ft_printf(const char *str, ...)
 {
-	va_list		flags;
+	t_vars		vars;
+	int			ret;
 
-	va_start(flags, str);
-	while(*str)
-	{
-		if(*str == '%')
-		{
-			str++;
-			choose_flag(flags, *str);
-		}
-		else if (*str != '%')
-			ft_putchar(*str);
-		str++;
-	}
-	va_end(flags);
+	if (str == NULL)
+		return (-1);
+	va_start(vars.ap, str);
+	ft_init_functions_tab(vars.f);
+	ret = ft_sub_printf((char*)str, &vars) != -1 ? vars.ret : -1;
 	return (0);
 }
