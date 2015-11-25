@@ -37,5 +37,6 @@ typedef struct	s_vars
 }				t_vars;
 
 int			ft_printf(const char *str, ...);
+void			ft_parse(char *str, int len, t_vars *vars);
 
 # endif

@@ -13,6 +13,24 @@
 #include "ft_printf.h"
 #include "libft.h"
 
+
+#include "printf.h"
+
+static int		ft_parse_var(char *str, t_vars *vars)
+{
+	int		i;
+
+	i = 0;
+	while (str[i] && (ft_isdigit(str[i]) || ft_strchr(FT_PARSE, str[i])))
+		++i;
+	if (str[i])
+	{
+		ft_parse(str, i, vars);
+		++i;
+	}
+	return (i);
+}
+
 static void		ft_init_functions_tab(int (**f)(t_options *, va_list *, int *))
 {
 	(void)f[0]; // = ft_s;

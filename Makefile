@@ -6,7 +6,7 @@
 #    By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/10 11:30:22 by aalliot           #+#    #+#              #
-#    Updated: 2015/01/02 16:57:31 by aalliot          ###   ########.fr        #
+#    Updated: 2015/11/25 16:13:56 by aalliot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ STATIC_LIB	= libftprintf.a
 DEBUG_LIB	= libftprintf_debug.a
 DYNAMIC_LIB	= libftprintf.so
 
-SRC		=	ft_printf.c
+SRC		=	ft_printf.c parse.c
 
 DYNAMIC_OBJ	= $(patsubst %.c,$(DYNAMIC_DIR)/%.o,$(SRC))
 STATIC_OBJ	= $(patsubst %.c,$(STATIC_DIR)/%.o,$(SRC))
