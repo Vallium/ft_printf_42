@@ -16,7 +16,18 @@
 # include <stdarg.h>
 # include <unistd.h>
 
+# define NBOFTYPES 17
 
+
+typedef struct	s_options
+{
+	int	flags;
+	int	len;
+	int	precise;
+	int	modif;
+	int	type;
+	int	zero;
+}				t_options;
 
 typedef struct	s_vars
 {

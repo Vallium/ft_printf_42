@@ -11,26 +11,27 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
 static void		ft_init_functions_tab(int (**f)(t_options *, va_list *, int *))
 {
-	f[0] = ft_s;
-	f[1] = ft_s2;
-	f[2] = ft_p;
-	f[3] = ft_d;
-	f[4] = ft_d2;
-	f[5] = ft_d;
-	f[6] = ft_o;
-	f[7] = ft_o2;
-	f[8] = ft_u;
-	f[9] = ft_u2;
-	f[10] = ft_x;
-	f[11] = ft_x2;
-	f[12] = ft_c;
-	f[13] = ft_c2;
-	f[14] = ft_b;
-	f[15] = ft_r;
-	f[16] = ft_g;
+	(void)f[0]; // = ft_s;
+	(void)f[1] ;// = ft_s2;
+	(void)f[2]; // = ft_p;
+	(void)f[3]; // = ft_d;
+	(void)f[4] ;// = ft_d2;
+	(void)f[5]; // = ft_d;
+	(void)f[6]; // = ft_o;
+	(void)f[7] ;// = ft_o2;
+	(void)f[8]; // = ft_u;
+	(void)f[9] ;// = ft_u2;
+	(void)f[10]; // = ft_x;
+	(void)f[11] ;// = ft_x2;
+	(void)f[12]; // = ft_c;
+	(void)f[13] ;// = ft_c2;
+	(void)f[14]; // = ft_b;
+	(void)f[15]; // = ft_r;
+	(void)f[16]; // = ft_g;
 }
 
 static int	ft_sub_printf(char *str, t_vars *vars)
@@ -43,10 +44,10 @@ static int	ft_sub_printf(char *str, t_vars *vars)
 	{
 		if(*str == '%')
 		{
-			var->ret += str - beg_ptr
+			vars->ret += str - beg_ptr;
 			if (vars->ret > 0)
 				write(1, beg_ptr, str - beg_ptr);
-			str += ft_parse_var(str + 1, vars) + 1;
+			// str += ft_parse_var(str + 1, vars) + 1;
 			if (vars->ret == -1)
 				return (-1);
 			beg_ptr = str;
@@ -56,7 +57,7 @@ static int	ft_sub_printf(char *str, t_vars *vars)
 	}
 	vars->ret += ft_strlen(beg_ptr);
 	ft_putstr(beg_ptr);
-	va_end(flags);
+	va_end(vars->ap);
 	return (0);
 }
 
