@@ -21,11 +21,11 @@ static int		ft_parse_var(char *str, t_vars *vars)
 
 	i = 0;
 	while (str[i] && (ft_isdigit(str[i]) || ft_strchr(FT_PARSE, str[i])))
-		++i;
+		i++;
 	if (str[i])
 	{
 		ft_parse(str, i, vars);
-		++i;
+		i++;
 	}
 	return (i);
 }
@@ -88,5 +88,5 @@ int			ft_printf(const char *str, ...)
 	va_start(vars.ap, str);
 	ft_init_functions_tab(vars.f);
 	ret = ft_sub_printf((char*)str, &vars) != -1 ? vars.ret : -1;
-	return (0);
+	return (ret);
 }
