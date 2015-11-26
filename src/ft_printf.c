@@ -13,7 +13,6 @@
 #include "ft_printf.h"
 #include "libft.h"
 
-
 #include "printf.h"
 
 static int		ft_parse_var(char *str, t_vars *vars)
@@ -58,14 +57,14 @@ static int	ft_sub_printf(char *str, t_vars *vars)
 
 	beg_ptr = str;
 	vars->ret = 0;
-	while(*str)
+	while (*str)
 	{
-		if(*str == '%')
+		if (*str == '%')
 		{
 			vars->ret += str - beg_ptr;
 			if (vars->ret > 0)
 				write(1, beg_ptr, str - beg_ptr);
-			// str += ft_parse_var(str + 1, vars) + 1;
+			str += ft_parse_var(str + 1, vars) + 1;
 			if (vars->ret == -1)
 				return (-1);
 			beg_ptr = str;

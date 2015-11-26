@@ -6,7 +6,7 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 15:08:04 by aalliot           #+#    #+#             */
-/*   Updated: 2014/11/14 15:54:14 by aalliot          ###   ########.fr       */
+/*   Updated: 2015/11/26 15:07:14 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int					ft_toupper(int c);
 
 int					ft_intlen(int i);
 int					ft_llilen(long long int i);
+int					ft_longlen(long n);
+int					ft_ulonglen(unsigned long n);
 
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);

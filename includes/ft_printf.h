@@ -15,18 +15,24 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdlib.h>
+
+# include "libft.h"
 
 # define NBOFTYPES 17
-
+# define FT_TYPES "sSpdDioOuUxXcCbrg"
+# define FT_PARSE "hljz-+ #.*"
+# define FT_MODIF "hljz"
+# define FT_FLAGS "-+ #"
 
 typedef struct	s_options
 {
-	int	flags;
-	int	len;
-	int	precise;
-	int	modif;
-	int	type;
-	int	zero;
+	int			flags;
+	int			len;
+	int			precise;
+	int			modif;
+	int			type;
+	int			zero;
 }				t_options;
 
 typedef struct	s_vars
@@ -36,7 +42,7 @@ typedef struct	s_vars
 	int			ret;
 }				t_vars;
 
-int			ft_printf(const char *str, ...);
+int				ft_printf(const char *str, ...);
 void			ft_parse(char *str, int len, t_vars *vars);
 
 # endif

@@ -6,7 +6,7 @@
 #    By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/10 11:30:22 by aalliot           #+#    #+#              #
-#    Updated: 2015/02/15 19:34:52 by aalliot          ###   ########.fr        #
+#    Updated: 2015/11/26 15:07:33 by aalliot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,6 +90,8 @@ SRC		=	ft_bzero.c				\
 			ft_sort_mrg.c			\
 			ft_intlen.c				\
 			ft_llilen.c				\
+			ft_longlen.c			\
+			ft_ulonglen.c			\
 			get_next_line.c
 
 DYNAMIC_OBJ	= $(patsubst %.c,$(DYNAMIC_DIR)/%.o,$(SRC))
