@@ -44,5 +44,7 @@ typedef struct	s_vars
 
 int				ft_printf(const char *str, ...);
 void			ft_parse(char *str, int len, t_vars *vars);
+void			ft_putspace(t_options *opt, int len, long long n);
+int				conv_s(t_options *opt, va_list *ap, int *ret);
 
 # endif

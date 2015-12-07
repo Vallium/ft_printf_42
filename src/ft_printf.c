@@ -32,7 +32,7 @@ static int		ft_parse_var(char *str, t_vars *vars)
 
 static void		ft_init_functions_tab(int (**f)(t_options *, va_list *, int *))
 {
-	(void)f[0]; // = ft_s;
+	f[0]= conv_s;
 	(void)f[1] ;// = ft_s2;
 	(void)f[2]; // = ft_p;
 	(void)f[3]; // = ft_d;

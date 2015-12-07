@@ -119,8 +119,9 @@ $(shell mkdir -p $(STATIC_DIR) $(DYNAMIC_DIR) $(DEBUG_DIR))
 all: $(STATIC_LIB) $(DYNAMIC_LIB) $(DEBUG_LIB)
 
 $(STATIC_LIB): $(STATIC_OBJ)
-	ar rc $@ $(STATIC_OBJ)
-	ranlib $@
+	# ar rc $@ $(STATIC_OBJ)
+	# ranlib $@
+	@echo Objects files from libc compiled
 
 $(DEBUG_LIB): $(DEBUG_OBJ)
 	ar rc $@ $(DEBUG_OBJ)

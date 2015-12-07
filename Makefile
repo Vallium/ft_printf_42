@@ -14,7 +14,9 @@ STATIC_LIB	= libftprintf.a
 DEBUG_LIB	= libftprintf_debug.a
 DYNAMIC_LIB	= libftprintf.so
 
-SRC		=	ft_printf.c parse.c
+SRC		=	ft_printf.c \
+			parse.c		\
+			conv_s.c
 
 DYNAMIC_OBJ	= $(patsubst %.c,$(DYNAMIC_DIR)/%.o,$(SRC))
 STATIC_OBJ	= $(patsubst %.c,$(STATIC_DIR)/%.o,$(SRC))
@@ -27,11 +29,11 @@ STATIC_DIR	= static
 DYNAMIC_DIR	= dynamic
 
 LIBFT_STATIC= libft/libft.a
+LIBFT_STATIC_DIR = libft/static/
 LIBFT_DEBUG	= libft/libft_debug.a
 LIBFT_HEAD	= libft/includes/
 
 CC			= gcc
-NORMINETTE	= ~/project/colorminette/colorminette
 
 UNAME_S := $(shell uname -s)
 
@@ -45,7 +47,7 @@ $(shell mkdir -p $(STATIC_DIR) $(DYNAMIC_DIR) $(DEBUG_DIR))
 all: $(STATIC_LIB) # $(DYNAMIC_LIB) $(DEBUG_LIB)
 
 $(STATIC_LIB): $(STATIC_OBJ)
-	ar rc $@ $(STATIC_OBJ) $(LIBFT_STATIC)
+	ar rc $@ libft/static/* $(STATIC_OBJ)
 	ranlib $@
 
 # $(DEBUG_LIB): $(DEBUG_OBJ) $(LIBFT_DEBUG)
@@ -70,10 +72,7 @@ $(LIBFT_STATIC):
 $(LIBFT_DEBUG):
 	make -C libft/ libft_debug.a
 
-.PHONY: clean fclean re norme
-
-norme:
-	@$(NORMINETTE) $(SRC_DIR)/ $(HEAD_DIR)/
+.PHONY: clean fclean re
 
 clean:
 	make -C libft/ clean
