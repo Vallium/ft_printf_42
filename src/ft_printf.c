@@ -44,8 +44,8 @@ static void		ft_init_functions_tab(int (**f)(t_options *, va_list *, int *))
 	(void)f[9] ;// = ft_u2;
 	(void)f[10]; // = ft_x;
 	(void)f[11] ;// = ft_x2;
-	(void)f[12]; // = ft_c;
-	(void)f[13] ;// = ft_c2;
+	f[12] = conv_c;
+	f[13] = conv_c2;
 	(void)f[14]; // = ft_b;
 	(void)f[15]; // = ft_r;
 	(void)f[16]; // = ft_g;

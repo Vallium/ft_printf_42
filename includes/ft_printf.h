@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <wchar.h>
 
 # include "libft.h"
 
@@ -46,5 +47,12 @@ int				ft_printf(const char *str, ...);
 void			ft_parse(char *str, int len, t_vars *vars);
 void			ft_putspace(t_options *opt, int len, long long n);
 int				conv_s(t_options *opt, va_list *ap, int *ret);
+int				conv_c(t_options *opt, va_list *ap, int *ret);
+int				conv_c2(t_options *opt, va_list *ap, int *ret);
+
+int				ft_utfclen(wint_t c);
+int				ft_utfnlen(wchar_t *s, int n);
+int				ft_utflen(wchar_t *s);
+int				ft_to_utf8(wint_t c, int bytes, unsigned char *mask);
 
 # endif
