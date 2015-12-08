@@ -22,6 +22,7 @@
 
 # define NBOFTYPES 17
 # define FT_TYPES "sSpdDioOuUxXcCbrg"
+# define FT_HEX "abcdef"
 # define FT_PARSE "hljz-+ #.*"
 # define FT_MODIF "hljz"
 # define FT_FLAGS "-+ #"
@@ -55,6 +56,7 @@ int				conv_c(t_options *opt, va_list *ap, int *ret);
 int				conv_c2(t_options *opt, va_list *ap, int *ret);
 int				conv_d(t_options *opt, va_list *ap, int *ret);
 int				conv_d2(t_options *opt, va_list *ap, int *ret);
+int				conv_p(t_options *opt, va_list *ap, int *ret);
 
 int				ft_utfclen(wint_t c);
 int				ft_utfnlen(wchar_t *s, int n);

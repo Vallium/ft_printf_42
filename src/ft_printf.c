@@ -34,7 +34,7 @@ static void		ft_init_functions_tab(int (**f)(t_options *, va_list *, int *))
 {
 	f[0]= conv_s;
 	f[1] = conv_s2;
-	(void)f[2]; // = ft_p;
+	f[2] = conv_p;
 	f[3] = conv_d;
 	f[4] = conv_d2;
 	f[5] = conv_d;
