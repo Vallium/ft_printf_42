@@ -22,6 +22,7 @@ SRC		=	ft_printf.c \
 			conv_d.c	\
 			conv_p.c	\
 			conv_o.c	\
+			hexa.c		\
 			utf8.c
 
 DYNAMIC_OBJ	= $(patsubst %.c,$(DYNAMIC_DIR)/%.o,$(SRC))

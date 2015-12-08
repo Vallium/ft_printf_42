@@ -49,6 +49,7 @@ void			ft_parse(char *str, int len, t_vars *vars);
 void			ft_putspace(t_options *opt, int len, long long n);
 void			ft_putsigned(int flags, long long n);
 void			ft_putzero(t_options *opt, int len);
+int				ft_dectohex(char *hex, unsigned long n, int up);
 
 int				conv_s(t_options *opt, va_list *ap, int *ret);
 int				conv_s2(t_options *opt, va_list *ap, int *ret);
