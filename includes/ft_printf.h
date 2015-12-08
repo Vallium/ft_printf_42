@@ -50,6 +50,7 @@ void			ft_putsigned(int flags, long long n);
 void			ft_putzero(t_options *opt, int len);
 
 int				conv_s(t_options *opt, va_list *ap, int *ret);
+int				conv_s2(t_options *opt, va_list *ap, int *ret);
 int				conv_c(t_options *opt, va_list *ap, int *ret);
 int				conv_c2(t_options *opt, va_list *ap, int *ret);
 int				conv_d(t_options *opt, va_list *ap, int *ret);
