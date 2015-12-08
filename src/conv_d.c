@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static int	ft_write_d(t_options *opt, long long n)
 {
@@ -24,7 +24,7 @@ static int	ft_write_d(t_options *opt, long long n)
 		--opt->len;
 		opt->precise = opt->len;
 	}
-	temp = ft_nbrlen2((n < 0) ? -n : n);
+	temp = ft_ulonglen((n < 0) ? -n : n);
 	temp = (n || opt->precise) ? temp : 0;
 	len = ((opt->precise > temp) ? opt->precise : temp) + issigned;
 	if (opt->len > len && !(opt->flags & 1))
@@ -40,7 +40,7 @@ static int	ft_write_d(t_options *opt, long long n)
 	return ((opt->len > len) ? opt->len : len);
 }
 
-int			ft_d(t_options *opt, va_list *ap, int *ret)
+int			conv_d(t_options *opt, va_list *ap, int *ret)
 {
 	long long	n;
 
@@ -56,9 +56,9 @@ int			ft_d(t_options *opt, va_list *ap, int *ret)
 	return (0);
 }
 
-int			ft_d2(t_options *opt, va_list *ap, int *ret)
+int			conv_d2(t_options *opt, va_list *ap, int *ret)
 {
 	opt->modif = 1;
 	opt->type = 3;
-	return (ft_d(opt, ap, ret));
+	return (conv_d(opt, ap, ret));
 }

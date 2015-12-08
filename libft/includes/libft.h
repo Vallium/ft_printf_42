@@ -6,7 +6,7 @@
 /*   By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 15:08:04 by aalliot           #+#    #+#             */
-/*   Updated: 2015/12/07 16:43:07 by aalliot          ###   ########.fr       */
+/*   Updated: 2015/12/08 17:27:45 by aalliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void				ft_putendl(const char *s);
 void				ft_putendl_fd(const char *s, int fd);
 void				ft_putnbr(int n);
 void				ft_putnbrll(long long int n);
+void				ft_putnbrul(unsigned long n);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_bzero(void *s, size_t n);
 void				ft_memdel(void **ap);
