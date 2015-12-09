@@ -46,9 +46,6 @@ static void		ft_init_functions_tab(int (**f)(t_options *, va_list *, int *))
 	f[11] = conv_x2;
 	f[12] = conv_c;
 	f[13] = conv_c2;
-	(void)f[14]; // = ft_b;
-	(void)f[15]; // = ft_r;
-	(void)f[16]; // = ft_g;
 }
 
 static int		ft_sub_printf(char *str, t_vars *vars)
