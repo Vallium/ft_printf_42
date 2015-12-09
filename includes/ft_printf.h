@@ -62,6 +62,8 @@ int				conv_o(t_options *opt, va_list *ap, int *ret);
 int				conv_o2(t_options *opt, va_list *ap, int *ret);
 int				conv_x(t_options *opt, va_list *ap, int *ret);
 int				conv_x2(t_options *opt, va_list *ap, int *ret);
+int				conv_u(t_options *opt, va_list *ap, int *ret);
+int				conv_u2(t_options *opt, va_list *ap, int *ret);
 
 int				ft_utfclen(wint_t c);
 int				ft_utfnlen(wchar_t *s, int n);
