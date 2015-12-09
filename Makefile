@@ -11,6 +11,7 @@
 # **************************************************************************** #
 
 STATIC_LIB	= libftprintf.a
+STATIC_LIB_TMP	= libftprintf.a
 DEBUG_LIB	= libftprintf_debug.a
 DYNAMIC_LIB	= libftprintf.so
 
@@ -57,7 +58,8 @@ $(shell mkdir -p $(STATIC_DIR) $(DYNAMIC_DIR) $(DEBUG_DIR))
 all: $(STATIC_LIB) # $(DYNAMIC_LIB) $(DEBUG_LIB)
 
 $(STATIC_LIB): $(STATIC_OBJ)
-	ar rc $@ libft/static/* $(STATIC_OBJ)
+	ar rc $(STATIC_LIB_TMP) $(STATIC_OBJ)
+	libtool -static -o $@ $(LIBFT_STATIC) $(STATIC_LIB_TMP) 
 	ranlib $@
 
 # $(DEBUG_LIB): $(DEBUG_OBJ) $(LIBFT_DEBUG)
