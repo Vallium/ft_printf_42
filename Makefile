@@ -25,6 +25,7 @@ SRC		=	ft_printf.c \
 			conv_o.c	\
 			conv_x.c	\
 			conv_u.c	\
+			conv_b.c	\
 			hexa.c		\
 			utf8.c
 
