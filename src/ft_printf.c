@@ -17,7 +17,7 @@
 
 static int		ft_parse_var(char *str, t_vars *vars)
 {
-	int		i;
+	int			i;
 
 	i = 0;
 	while (str[i] && (ft_isdigit(str[i]) || ft_strchr(FT_PARSE, str[i])))
@@ -32,7 +32,7 @@ static int		ft_parse_var(char *str, t_vars *vars)
 
 static void		ft_init_functions_tab(int (**f)(t_options *, va_list *, int *))
 {
-	f[0]= conv_s;
+	f[0] = conv_s;
 	f[1] = conv_s2;
 	f[2] = conv_p;
 	f[3] = conv_d;
@@ -51,9 +51,9 @@ static void		ft_init_functions_tab(int (**f)(t_options *, va_list *, int *))
 	(void)f[16]; // = ft_g;
 }
 
-static int	ft_sub_printf(char *str, t_vars *vars)
+static int		ft_sub_printf(char *str, t_vars *vars)
 {
-	char	*beg_ptr;
+	char		*beg_ptr;
 
 	beg_ptr = str;
 	vars->ret = 0;
@@ -78,7 +78,7 @@ static int	ft_sub_printf(char *str, t_vars *vars)
 	return (0);
 }
 
-int			ft_printf(const char *str, ...)
+int				ft_printf(const char *str, ...)
 {
 	t_vars		vars;
 	int			ret;

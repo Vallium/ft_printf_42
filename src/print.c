@@ -38,3 +38,31 @@ void		ft_putzero(t_options *opt, int len)
 	write(1, str, size);
 	free(str);
 }
+
+void		ft_putspace(t_options *opt, int len, long long n)
+{
+	char	*str;
+	int		size;
+	int		i;
+	char	c;
+
+	size = (opt->len > len) ? opt->len - len : 0;
+	if (opt->type == 3 && n < 0 && opt->precise == -1 && opt->zero \
+		&& !(opt->flags & 1))
+	{
+		opt->precise += opt->len;
+		return ;
+	}
+	if ((str = (char*)malloc(sizeof(char*) * size)) == NULL)
+		return ;
+	if (opt->type >= 2 && opt->type <= 11 && opt->precise != -1)
+		c = ' ';
+	else
+		c = (opt->zero && !(opt->flags & 1)) ? '0' : ' ';
+	i = 0;
+	while (i < size)
+		str[i++] = c;
+	str[i] = '\0';
+	write(1, str, size);
+	free(str);
+}

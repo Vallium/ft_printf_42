@@ -20,7 +20,7 @@ void		*ft_malloc(size_t n)
 	if (!(ret = malloc(n)))
 	{
 		ft_putstr_fd("Malloc error: Program quited.", 2);
-		exit (2);
+		exit(2);
 	}
 	return (ret);
 }

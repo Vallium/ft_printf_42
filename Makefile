@@ -16,6 +16,7 @@ DYNAMIC_LIB	= libftprintf.so
 
 SRC		=	ft_printf.c \
 			parse.c		\
+			parse2.c	\
 			print.c		\
 			conv_s.c	\
 			conv_c.c	\
