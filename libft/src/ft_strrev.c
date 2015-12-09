@@ -20,7 +20,7 @@ void		ft_strrev(char *str)
 
 	len = ft_strlen(str) - 1;
 	i = 0;
-	while (i< len)
+	while (i < len)
 	{
 		tmp = str[i];
 		str[i++] = str[len];
