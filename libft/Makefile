@@ -6,7 +6,7 @@
 #    By: aalliot <aalliot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/10 11:30:22 by aalliot           #+#    #+#              #
-#*   Updated: 2015/12/08 20:33:49 by aalliot          ###   ########.fr       *#
+#*   Updated: 2015/12/09 18:21:34 by aalliot          ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -119,12 +119,11 @@ else
 endif
 $(shell mkdir -p $(STATIC_DIR) $(DYNAMIC_DIR) $(DEBUG_DIR))
 
-all: $(STATIC_LIB) $(DYNAMIC_LIB) $(DEBUG_LIB)
+all: $(STATIC_LIB) # $(DYNAMIC_LIB) $(DEBUG_LIB)
 
 $(STATIC_LIB): $(STATIC_OBJ)
-	# ar rc $@ $(STATIC_OBJ)
-	# ranlib $@
-	@echo Objects files from libc compiled
+	ar rc $@ $(STATIC_OBJ)
+	ranlib $@
 
 $(DEBUG_LIB): $(DEBUG_OBJ)
 	ar rc $@ $(DEBUG_OBJ)
