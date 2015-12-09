@@ -27,7 +27,7 @@ int				ft_dectohex(char *hex, unsigned long n, int up)
 			hex[i] = (up) ? ft_toupper(FT_HEX[rem % 10]) : FT_HEX[rem % 10];
 		else
 			hex[i] = rem + '0';
-		++i;
+		i++;
 		n /= 16;
 	}
 	hex[i] = '\0';

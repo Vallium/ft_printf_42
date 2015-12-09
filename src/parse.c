@@ -94,10 +94,10 @@ int		ft_flag(char *s1, char *s2, int len)
 		{
 			if (*s1 == *s2++)
 				flags |= 1 << i;
-			++j;
+			j++;
 		}
-		++i;
-		++s1;
+		i++;
+		s1++;
 	}
 	return (flags);
 }
@@ -109,12 +109,12 @@ int		ft_zero(char *s1)
 		if (ft_isdigit(*s1) && (*s1 != '0' || *(s1 - 1) == '.'))
 		{
 			while (ft_isdigit(*s1))
-				++s1;
+				s1++;
 		}
 		else if (ft_isdigit(*s1))
 			return (1);
 		else
-			++s1;
+			s1++;
 	}
 	return (0);
 }
@@ -130,9 +130,9 @@ int		ft_len(char *str, int len, va_list *ap)
 	{
 		if (str[i] == '.')
 		{
-			++i;
+			i++;
 			while (ft_isdigit(str[i]) || str[i] == '*')
-				++i;
+				i++;
 		}
 		if ((str[i] && ft_isdigit(str[i]) && ft_atoi(str + i) > 0) \
 			|| str[i] == '*')
@@ -141,7 +141,7 @@ int		ft_len(char *str, int len, va_list *ap)
 			i += ft_longlen(n);
 		}
 		else
-			++i;
+			i++;
 	}
 	return (n);
 }
@@ -179,9 +179,9 @@ int		ft_modif(char *s1, int len)
 					modif = 5;
 				return (modif);
 			}
-			++s2;
+			s2++;
 		}
-		--s1;
+		s1--;
 	}
 	return (-1);
 }
