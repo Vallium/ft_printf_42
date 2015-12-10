@@ -12,8 +12,11 @@
 
 STATIC_LIB	= libftprintf.a
 STATIC_LIB_TMP	= libftprintf.a
+
 DEBUG_LIB	= libftprintf_debug.a
-DYNAMIC_LIB	= libftprintf.so
+DEBUG_LIB_TMP	= libftprintf_debug.a
+
+# DYNAMIC_LIB	= libftprintf.so
 
 SRC		=	ft_printf.c \
 			parse.c		\
@@ -41,7 +44,10 @@ DYNAMIC_DIR	= dynamic
 
 LIBFT_STATIC= libft/libft.a
 LIBFT_STATIC_DIR = libft/static/
+
 LIBFT_DEBUG	= libft/libft_debug.a
+LIBFT_DEBUG_DIR = libft/debug/
+
 LIBFT_HEAD	= libft/includes/
 
 CC			= gcc
@@ -57,13 +63,16 @@ $(shell mkdir -p $(STATIC_DIR) $(DYNAMIC_DIR) $(DEBUG_DIR))
 
 all: $(STATIC_LIB) # $(DYNAMIC_LIB) $(DEBUG_LIB)
 
+# debug: $(DEBUG_LIB)
+
 $(STATIC_LIB): $(STATIC_OBJ)
 	ar rc $(STATIC_LIB_TMP) $(STATIC_OBJ)
-	libtool -static -o $@ $(LIBFT_STATIC) $(STATIC_LIB_TMP) 
+	libtool -static -o $@ $(LIBFT_STATIC) $(STATIC_LIB_TMP)
 	ranlib $@
 
-# $(DEBUG_LIB): $(DEBUG_OBJ) $(LIBFT_DEBUG)
-# 	ar rc $@ $(DEBUG_OBJ)
+# $(DEBUG_LIB): $(DEBUG_OBJ)
+# 	ar rc $@ $(DEBUG_LIB_TMP) $(DEBUG_OBJ)
+# 	libtool -g -o $@ $(LIBFT_DEBUG) $(DEBUG_LIB_TMP)
 # 	ranlib $@
 #
 # $(DYNAMIC_LIB): $(DYNAMIC_OBJ)
@@ -72,8 +81,8 @@ $(STATIC_LIB): $(STATIC_OBJ)
 $(STATIC_DIR)/%.o: $(SRC_DIR)/%.c $(LIBFT_STATIC)
 	$(CC) -O3 -I $(HEAD_DIR) -I $(LIBFT_HEAD) -o $@ -c $< $(FLAGS)
 
-# $(DEBUG_DIR)/%.o: $(SRC_DIR)/%.c
-# 	$(CC) -I $(HEAD_DIR) -o $@ -c $< $(FLAGS) -g
+$(DEBUG_DIR)/%.o: $(SRC_DIR)/%.c $(LIBFT_DEBUG)
+	$(CC) -I $(HEAD_DIR) -I $(LIBFT_HEAD) -o $@ -c $< $(FLAGS) -g
 #
 # $(DYNAMIC_DIR)/%.o: $(SRC_DIR)/%.c
 # 	$(CC) -O3 -fPIC -I $(HEAD_DIR) -o $@ -c $< $(FLAGS)
